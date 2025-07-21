@@ -49,6 +49,7 @@ api_router.include_router(utils_router)
 # Include the main router in the app
 app.include_router(api_router)
 
+# CORS Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
@@ -64,6 +65,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+@app.on_event("startup")
+async def startup_event():
+    """Initialize database on startup"""
+    await init_database()
+    logger.info("Database initialized successfully")
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
+    """Close database connection on shutdown"""
     client.close()
+    logger.info("Database connection closed")
