@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
-from ..models import OrderCreate, Order, StatusResponse, PaymentResponse
-from ..auth import get_current_user
-from ..database import orders_collection, carts_collection
-from ..utils import calculate_shipping
+from models import OrderCreate, Order, StatusResponse, PaymentResponse
+from auth import get_current_user
+from database import orders_collection, carts_collection
+from utils import calculate_shipping
 
 router = APIRouter(prefix="/orders", tags=["Orders"])
 
