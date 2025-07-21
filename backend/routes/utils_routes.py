@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from ..models import StatusResponse, CEPResponse
-from ..utils import get_address_by_cep, calculate_shipping
+from models import StatusResponse, CEPResponse
+from utils import get_address_by_cep, calculate_shipping
 
 router = APIRouter(prefix="/utils", tags=["Utils"])
 
