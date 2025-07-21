@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, status, Depends
-from ..models import UserCreate, UserLogin, User, UserResponse, LoginResponse, StatusResponse
-from ..auth import get_password_hash, verify_password, create_access_token, get_current_user
-from ..database import users_collection
-from ..utils import validate_cpf, validate_cnpj_with_name
+from models import UserCreate, UserLogin, User, UserResponse, LoginResponse, StatusResponse
+from auth import get_password_hash, verify_password, create_access_token, get_current_user
+from database import users_collection
+from utils import validate_cpf, validate_cnpj_with_name
 import re
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
