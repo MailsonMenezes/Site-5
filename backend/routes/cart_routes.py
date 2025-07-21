@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List, Optional
-from ..models import CartItem, Cart, StatusResponse
-from ..auth import get_current_user
-from ..database import carts_collection
+from models import CartItem, Cart, StatusResponse
+from auth import get_current_user
+from database import carts_collection
 
 router = APIRouter(prefix="/cart", tags=["Cart"])
 
